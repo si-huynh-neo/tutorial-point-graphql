@@ -5,6 +5,12 @@ const Query = {
     return "hello from  TutorialsPoint !!!";
   },
 
+
+  //resolver function for greeting
+  sayHello: (root,args,context,info) => {
+    return `Hi ${args.name} GraphQL server says Hello to you!!`;
+  },
+
   //resolver function for students returns list
   students: () => db.students.list(),
 
@@ -13,6 +19,10 @@ const Query = {
     //args will contain parameter passed in query
     return db.students.get(args.id);
   },
+  
+  setFavouriteColor:(root,args) => {
+    return  "Your Fav Color is :"+args.color;
+ },
 };
 
 //for each single student object returned,resolver is invoked
